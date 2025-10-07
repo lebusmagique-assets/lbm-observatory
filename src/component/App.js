@@ -313,12 +313,12 @@ class App extends Component {
                                     <div className="col s12 m6">
                                         {lang === 'en' ?
                                             <div>
-                                                <h3>What is Observatory</h3>
+                                                <h3>What is Observatory ?</h3>
                                                 <p>Hosted by <a href="https://www.lebusmagique.fr/" target="_blank" rel="noopener noreferrer">Le Bus Magique</a>, Observatory lets you know where each of your characters is in the Guild Wars 2 quest timeline.</p>
                                             </div>
                                             :
                                             <div>
-                                                <h3>C'est quoi Observatory</h3>
+                                                <h3>C'est quoi Observatory ?</h3>
                                                 <p>Hébergé par <a href="https://www.lebusmagique.fr/" target="_blank" rel="noopener noreferrer">Le Bus Magique</a>, Observatory permet de savoir ou en est chacun de vos personnages dans la chronologie des quêtes de Guild Wars 2.</p>
                                             </div>
                                         }
@@ -331,15 +331,15 @@ class App extends Component {
                                     <div className="col s12 m6">
                                         {lang === 'en' ?
                                             <div>
-                                                <h3>How it works</h3>
-                                                <p>Thanks to the <a href={'https://api.guildwars2.com/v2'} target="_blank" rel="noopener noreferrer">API provided by ArenaNet</a> we have sorted Seasons, Stories and Quests in a chronological order as a card deck.</p>
+                                                <h3>How it works ?</h3>
+                                                <p>Thanks to the <a href={'https://api.guildwars2.com/v2'} target="_blank" rel="noopener noreferrer">API provided by ArenaNet</a> we have sorted seasons, stories and quests in a chronological order as a card deck.</p>
                                                 <p>In each card the quest tree follows the chronological order and provides multiple information about the possible choices of each character.</p>
                                             </div>
                                             :
                                             <div>
-                                                <h3>Comment ça fonctionne</h3>
-                                                <p>Grâce à <a href={'https://api.guildwars2.com/v2'} target="_blank" rel="noopener noreferrer">l'api fournie par ArenaNet</a> nous avons trié par ordre chronologique les Saisons, Histoires et Quêtes sous forme de deck de carte.</p>
-                                                <p>Dans chaque carte l'arborescence des quêtes suit l'ordre chronologique et fourni de multiples informations sur les choix possibles ou non de chaque personnage.</p>
+                                                <h3>Comment ça fonctionne? </h3>
+                                                <p>Grâce à <a href={'https://api.guildwars2.com/v2'} target="_blank" rel="noopener noreferrer">l'api fournie par ArenaNet</a> nous avons trié par ordre chronologique les saisons, histoires et quêtes sous forme de deck de carte.</p>
+                                                <p>Dans chaque carte, l'arborescence des quêtes suit l'ordre chronologique et fournit de multiples informations sur les choix possibles ou non de chaque personnage.</p>
                                             </div>
                                         }
                                     </div>
