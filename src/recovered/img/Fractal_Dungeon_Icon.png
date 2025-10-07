@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8" />
+<title>Error generating thumbnail</title>
+</head>
+<body>
+<h1>Error generating thumbnail</h1>
+<p>
+The given path of the specified thumbnail is incorrect;
+				expected 'e/e8/Fractals_of_the_Mists_(achievements).png/40px-Fractals_of_the_Mists_(achievements).png' but got 'd/d5/Fractals_of_the_Mists_(achievements).png/40px-Fractals_of_the_Mists_(achievements).png'.
+</p>
+
+</body>
+</html>
