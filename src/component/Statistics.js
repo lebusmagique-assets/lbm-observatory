@@ -110,7 +110,14 @@ class Statistics extends Component {
                                 </div>
                             </div>
                             
-                            <div className="progress">
+                            <div 
+                                className="progress" 
+                                role="progressbar" 
+                                aria-valuenow={stats.completionRate} 
+                                aria-valuemin="0" 
+                                aria-valuemax="100"
+                                aria-label={lang === 'fr' ? `Progression globale : ${stats.completionRate}%` : `Global progress: ${stats.completionRate}%`}
+                            >
                                 <div className="determinate" style={{width: `${stats.completionRate}%`}}></div>
                             </div>
                         </div>

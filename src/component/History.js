@@ -709,14 +709,14 @@ class History extends Component {
         return (
             <div className="row">
                 {(!loading && apiKeyError) &&
-                <div>
-                    <div className="red-text">{lang==='fr' ? 'Une erreur c\'est produite, vérifiez votre clé api. \n Cliquez sur le bouton reset pour revenir a la page d\'avant.' : 'An error occurred, check your API key. \n Click on the reset button to return to the previous page.'}</div>
+                <div role="alert">
+                    <div className="red-text">{lang==='fr' ? 'Une erreur s\'est produite, vérifiez votre clé API. \n Cliquez sur le bouton Reset pour revenir à la page d\'avant.' : 'An error occurred, please check your API key. \n Click on the Reset button to return to the previous page.'}</div>
                 </div>
                 }
 
                 {loading &&
-                    <div className="progress">
-                        <div className="indeterminate"> </div>
+                    <div className="progress" role="progressbar" aria-label={lang==='fr' ? 'Chargement des données' : 'Loading data'}>
+                        <div className="indeterminate"></div>
                     </div>
                 }
 
@@ -728,14 +728,21 @@ class History extends Component {
                                 `Loading characters... ${charactersLoaded}/${totalCharacters}`
                             }
                             {this.state.cachedCharacters > 0 && (
-                                <span style={{marginLeft: '10px', color: '#4CAF50'}}>
-                                    <i className="material-icons tiny" style={{verticalAlign: 'middle'}}>flash_on</i>
+                                <span style={{marginLeft: '10px', color: '#4CAF50'}} title={lang==='fr' ? 'Personnages chargés depuis le cache' : 'Characters loaded from cache'}>
+                                    <i className="material-icons tiny" style={{verticalAlign: 'middle'}} aria-hidden="true">flash_on</i>
                                     {this.state.cachedCharacters} {lang==='fr' ? 'en cache' : 'cached'}
                                 </span>
                             )}
                         </p>
-                        <div className="progress">
-                            <div className="determinate" style={{width: `${(charactersLoaded / totalCharacters) * 100}%`}}> </div>
+                        <div 
+                            className="progress" 
+                            role="progressbar" 
+                            aria-valuenow={(charactersLoaded / totalCharacters) * 100} 
+                            aria-valuemin="0" 
+                            aria-valuemax="100"
+                            aria-label={lang==='fr' ? `Chargement : ${charactersLoaded} sur ${totalCharacters} personnages` : `Loading: ${charactersLoaded} out of ${totalCharacters} characters`}
+                        >
+                            <div className="determinate" style={{width: `${(charactersLoaded / totalCharacters) * 100}%`}}></div>
                         </div>
                     </div>
                 }
@@ -744,37 +751,49 @@ class History extends Component {
                 {(!loading && !loadingCharacters && data) &&
                     <div className="row container">
                         <div className="col s12">
-                            <div className="view-tabs" style={{display: 'flex', justifyContent: 'center', marginBottom: '20px'}}>
+                            <div className="view-tabs" style={{display: 'flex', justifyContent: 'center', marginBottom: '20px'}} role="tablist" aria-label={lang==='fr' ? 'Navigation des vues' : 'View navigation'}>
                                 <button 
                                     className={`btn ${viewMode === 'timeline' ? 'active' : ''}`}
                                     onClick={() => this.setState({viewMode: 'timeline'})}
                                     style={{margin: '0 5px'}}
+                                    role="tab"
+                                    aria-selected={viewMode === 'timeline'}
+                                    aria-label={lang==='fr' ? 'Vue chronologie' : 'Timeline view'}
                                 >
-                                    <i className="material-icons left">timeline</i>
+                                    <i className="material-icons left" aria-hidden="true">timeline</i>
                                     {lang==='fr' ? 'Chronologie' : 'Timeline'}
                                 </button>
                                 <button 
                                     className={`btn ${viewMode === 'characters' ? 'active' : ''}`}
                                     onClick={() => this.setState({viewMode: 'characters'})}
                                     style={{margin: '0 5px'}}
+                                    role="tab"
+                                    aria-selected={viewMode === 'characters'}
+                                    aria-label={lang==='fr' ? 'Vue par personnage' : 'Characters view'}
                                 >
-                                    <i className="material-icons left">people</i>
+                                    <i className="material-icons left" aria-hidden="true">people</i>
                                     {lang==='fr' ? 'Personnages' : 'Characters'}
                                 </button>
                                 <button 
                                     className={`btn ${viewMode === 'statistics' ? 'active' : ''}`}
                                     onClick={() => this.setState({viewMode: 'statistics'})}
                                     style={{margin: '0 5px'}}
+                                    role="tab"
+                                    aria-selected={viewMode === 'statistics'}
+                                    aria-label={lang==='fr' ? 'Vue statistiques' : 'Statistics view'}
                                 >
-                                    <i className="material-icons left">assessment</i>
+                                    <i className="material-icons left" aria-hidden="true">assessment</i>
                                     {lang==='fr' ? 'Statistiques' : 'Statistics'}
                                 </button>
                                 <button 
                                     className="btn dropdown-trigger" 
                                     data-target="export-dropdown"
                                     style={{margin: '0 5px'}}
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    aria-label={lang==='fr' ? 'Menu d\'export des données' : 'Data export menu'}
                                 >
-                                    <i className="material-icons left">save_alt</i>
+                                    <i className="material-icons left" aria-hidden="true">save_alt</i>
                                     {lang==='fr' ? 'Exporter' : 'Export'}
                                 </button>
                             </div>

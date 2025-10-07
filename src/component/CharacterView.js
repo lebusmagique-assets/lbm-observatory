@@ -111,11 +111,13 @@ class CharacterView extends Component {
                             {/* Character Selection */}
                             <div className="row">
                                 <div className="col s12">
-                                    <label>{lang === 'fr' ? 'Sélectionner un personnage :' : 'Select a character:'}</label>
+                                    <label htmlFor="character-select">{lang === 'fr' ? 'Sélectionner un personnage :' : 'Select a character:'}</label>
                                     <select 
+                                        id="character-select"
                                         className="browser-default" 
                                         value={selectedCharacter || ''}
                                         onChange={(e) => this.setState({selectedCharacter: e.target.value})}
+                                        aria-label={lang === 'fr' ? 'Sélectionner un personnage pour voir ses quêtes' : 'Select a character to view their quests'}
                                     >
                                         <option value="">{lang === 'fr' ? '-- Choisir un personnage --' : '-- Choose a character --'}</option>
                                         {data.characters.map(char => (
@@ -152,11 +154,13 @@ class CharacterView extends Component {
                                     {/* Filters */}
                                     <div className="row" style={{marginTop: '20px'}}>
                                         <div className="col s12 m4">
-                                            <label>{lang === 'fr' ? 'Statut :' : 'Status:'}</label>
+                                            <label htmlFor="filter-status">{lang === 'fr' ? 'Statut :' : 'Status:'}</label>
                                             <select 
+                                                id="filter-status"
                                                 className="browser-default"
                                                 value={filterStatus}
                                                 onChange={(e) => this.setState({filterStatus: e.target.value})}
+                                                aria-label={lang === 'fr' ? 'Filtrer par statut' : 'Filter by status'}
                                             >
                                                 <option value="all">{lang === 'fr' ? 'Toutes' : 'All'}</option>
                                                 <option value="completed">{lang === 'fr' ? 'Terminées' : 'Completed'}</option>
@@ -165,11 +169,13 @@ class CharacterView extends Component {
                                             </select>
                                         </div>
                                         <div className="col s12 m4">
-                                            <label>{lang === 'fr' ? 'Extension :' : 'Expansion:'}</label>
+                                            <label htmlFor="filter-season">{lang === 'fr' ? 'Extension :' : 'Expansion:'}</label>
                                             <select 
+                                                id="filter-season"
                                                 className="browser-default"
                                                 value={filterSeason}
                                                 onChange={(e) => this.setState({filterSeason: e.target.value})}
+                                                aria-label={lang === 'fr' ? 'Filtrer par extension' : 'Filter by expansion'}
                                             >
                                                 <option value="all">{lang === 'fr' ? 'Toutes' : 'All'}</option>
                                                 {seasons.map(season => (
@@ -178,12 +184,14 @@ class CharacterView extends Component {
                                             </select>
                                         </div>
                                         <div className="col s12 m4">
-                                            <label>{lang === 'fr' ? 'Rechercher :' : 'Search:'}</label>
+                                            <label htmlFor="search-quest">{lang === 'fr' ? 'Rechercher :' : 'Search:'}</label>
                                             <input 
+                                                id="search-quest"
                                                 type="text" 
                                                 value={searchQuery}
                                                 onChange={(e) => this.setState({searchQuery: e.target.value})}
                                                 placeholder={lang === 'fr' ? 'Nom de la quête...' : 'Quest name...'}
+                                                aria-label={lang === 'fr' ? 'Rechercher une quête par son nom' : 'Search for a quest by name'}
                                             />
                                         </div>
                                     </div>

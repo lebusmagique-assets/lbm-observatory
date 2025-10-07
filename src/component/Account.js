@@ -121,32 +121,32 @@ class Account extends Component {
                             <table className="legend">
                                 <tbody>
                                 <tr>
-                                    <td className="center-align"><span className="status green">Name</span></td>
-                                    <td>{lang === 'en' ? ' Quest completed' : ' Quête terminée' }</td>
+                                    <td className="center-align"><span className="status green" aria-label={lang === 'en' ? 'Completed' : 'Terminée'}>Name</span></td>
+                                    <td>{lang === 'en' ? 'Quest completed' : 'Quête terminée'}</td>
                                 </tr>
                                 <tr>
-                                    <td className="center-align"><span className="status red">Name</span></td>
-                                    <td>{lang === 'en' ? ' Quest accessible but not completed' : ' Quête accessible mais non terminée' }</td>
+                                    <td className="center-align"><span className="status red" aria-label={lang === 'en' ? 'Accessible' : 'Accessible'}>Name</span></td>
+                                    <td>{lang === 'en' ? 'Quest accessible but not completed' : 'Quête accessible mais non terminée'}</td>
                                 </tr>
                                 <tr>
-                                    <td className="center-align"><span className="status orange">Name</span></td>
-                                    <td>{lang === 'en' ? ' Missing expansion required' : ' Extension requise manquante' }</td>
+                                    <td className="center-align"><span className="status orange" aria-label={lang === 'en' ? 'Missing expansion' : 'Extension manquante'}>Name</span></td>
+                                    <td>{lang === 'en' ? 'Required expansion missing' : 'Extension requise manquante'}</td>
                                 </tr>
                                 <tr>
-                                    <td className="center-align"><span className="status blue">Name</span></td>
-                                    <td>{lang === 'en' ? ' Character level too low' : ' Niveau du personnage insuffisant' }</td>
+                                    <td className="center-align"><span className="status blue" aria-label={lang === 'en' ? 'Level too low' : 'Niveau insuffisant'}>Name</span></td>
+                                    <td>{lang === 'en' ? 'Character level too low' : 'Niveau du personnage insuffisant'}</td>
                                 </tr>
                                 <tr>
-                                    <td className="center-align"><span className="status grey"><del>Name</del></span></td>
-                                    <td>{lang === 'en' ? ' Quest locked (backstory choice or race incompatible)' : ' Quête verrouillée (choix backstory ou race incompatible)' }</td>
+                                    <td className="center-align"><span className="status grey" aria-label={lang === 'en' ? 'Locked' : 'Verrouillée'}><del>Name</del></span></td>
+                                    <td>{lang === 'en' ? 'Quest locked (backstory choice or race incompatible)' : 'Quête verrouillée (choix de backstory ou race incompatible)'}</td>
                                 </tr>
                                 <tr>
-                                    <td className="center-align"><span> <i className="material-icons">looks_two</i> </span></td>
-                                    <td>{lang === 'en' ? ' After this quest choose one of the 2 quests below' : ' Après cette quête il faudra choisir parmi les 2 quêtes dessous' }</td>
+                                    <td className="center-align"><span><i className="material-icons" aria-label={lang === 'en' ? 'Choice between 2 quests' : 'Choix entre 2 quêtes'}>looks_two</i></span></td>
+                                    <td>{lang === 'en' ? 'After this quest, choose one of the 2 quests below' : 'Après cette quête, il faudra choisir parmi les 2 quêtes ci-dessous'}</td>
                                 </tr>
                                 <tr>
-                                    <td className="center-align"><div className="durmand"> </div></td>
-                                    <td><p>{lang === 'en' ? ' Quest only available for this faction' : ' Quête accessible uniquement pour cette faction' }</p></td>
+                                    <td className="center-align"><div className="durmand" role="img" aria-label={lang === 'en' ? 'Faction specific' : 'Spécifique à la faction'}></div></td>
+                                    <td>{lang === 'en' ? 'Quest only available for this faction' : 'Quête accessible uniquement pour cette faction'}</td>
                                 </tr>
                                 </tbody>
                             </table>
