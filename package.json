@@ -6,14 +6,17 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack serve --config webpack.config.js --mode development",
+    "start": "node_modules/.bin/webpack serve --config webpack.config.js --mode development",
     "dev": "npm start",
-    "build": "webpack --config webpack.config.js --mode production",
+    "build": "node_modules/.bin/webpack --config webpack.config.js --mode production",
     "build:clean": "rm -rf dist && npm run build",
     "lint": "eslint src/**/*.{js,jsx}",
     "lint:fix": "eslint src/**/*.{js,jsx} --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,json,css,scss}\"",
-    "serve:dist": "cd dist && python3 -m http.server 8000"
+    "serve:dist": "cd dist && python3 -m http.server 8000",
+    "release:patch": "./scripts/release.sh patch",
+    "release:minor": "./scripts/release.sh minor",
+    "release:major": "./scripts/release.sh major"
   },
   "dependencies": {
     "history": "^4.10.1",
@@ -30,12 +33,18 @@
     "@babel/preset-react": "^7.27.1",
     "babel-loader": "^9.2.1",
     "css-loader": "^6.11.0",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.4",
+    "mini-css-extract-plugin": "^2.9.4",
+    "prettier": "^3.6.2",
     "sass": "^1.93.2",
     "sass-loader": "^16.0.5",
     "style-loader": "^3.3.4",
-    "webpack": "^5.102.0",
+    "webpack": "^5.102.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.2.2"
   }

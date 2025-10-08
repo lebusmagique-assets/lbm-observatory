@@ -286,6 +286,33 @@ Version originale avec vue chronologie uniquement.
 
 ---
 
+## 🚀 Releases
+
+Le projet utilise GitHub Actions pour automatiser les releases.
+
+### Créer une nouvelle release
+
+```bash
+# 1. Mettre à jour le CHANGELOG.md
+# 2. Mettre à jour la version
+npm version patch   # 2.0.0 -> 2.0.1
+npm version minor   # 2.0.0 -> 2.1.0  
+npm version major   # 2.0.0 -> 3.0.0
+
+# 3. Pousser les changements et le tag
+git push origin main --tags
+```
+
+La GitHub Action va automatiquement :
+- ✅ Builder le projet
+- ✅ Créer un ZIP du build
+- ✅ Créer une release sur GitHub
+- ✅ Attacher le ZIP à la release
+
+📖 Voir [`.github/RELEASE.md`](.github/RELEASE.md) pour plus de détails.
+
+---
+
 ## 🤝 Contribution
 
 Les contributions sont les bienvenues ! 
@@ -295,6 +322,8 @@ Les contributions sont les bienvenues !
 3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrez une Pull Request
+
+Voir [`CONTRIBUTING.md`](CONTRIBUTING.md) pour plus de détails.
 
 ---
 
