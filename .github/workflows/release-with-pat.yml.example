@@ -1,0 +1,102 @@
+# ⚠️ Utilisez ce workflow SI le workflow principal échoue avec des erreurs de permissions
+# 
+# Configuration requise :
+# 1. Créez un Personal Access Token (PAT) sur GitHub :
+#    - Settings → Developer settings → Personal access tokens → Tokens (classic)
+#    - Générez un nouveau token avec les scopes : repo, workflow
+# 
+# 2. Ajoutez le token comme secret dans votre repository :
+#    - Settings → Secrets and variables → Actions → New repository secret
+#    - Name: PAT_TOKEN
+#    - Value: votre_token_généré
+# 
+# 3. Renommez ce fichier en supprimant ".example" :
+#    mv .github/workflows/release-with-pat.yml.example .github/workflows/release-with-pat.yml
+# 
+# 4. Supprimez l'ancien workflow :
+#    rm .github/workflows/release.yml
+
+name: Build and Release (with PAT)
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Create dist archive
+        run: |
+          cd dist
+          zip -r ../observatory-${{ github.ref_name }}.zip .
+          cd ..
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          if [ -f CHANGELOG.md ]; then
+            echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+            awk '/## \[/{if(++n==2)exit;if(n==1)next}n==1' CHANGELOG.md >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          else
+            echo "CHANGELOG=Release ${{ steps.get_version.outputs.VERSION }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ steps.get_version.outputs.VERSION }}
+          body: |
+            ## 🚀 Observatory - ${{ steps.get_version.outputs.VERSION }}
+
+            Guild Wars 2 Quest Tracker
+
+            ### 📦 Installation
+            1. Téléchargez le fichier `observatory-${{ github.ref_name }}.zip`
+            2. Extrayez le contenu
+            3. Servez les fichiers avec un serveur web
+            4. Accédez à `index.html`
+
+            ### ✨ Nouveautés
+            ${{ steps.changelog.outputs.CHANGELOG }}
+
+            ### 📊 Build Info
+            - Node.js: 18
+            - Build date: ${{ github.event.head_commit.timestamp }}
+            - Commit: ${{ github.sha }}
+          files: |
+            observatory-${{ github.ref_name }}.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}  # ⬅️ Utilise le PAT au lieu de GITHUB_TOKEN
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: observatory-build-${{ github.ref_name }}
+          path: dist/
+          retention-days: 30
+
