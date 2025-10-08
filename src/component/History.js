@@ -446,6 +446,7 @@ class History extends Component {
     }
 
     handleCard (id, season, story, e) {
+        console.log('handleCard called with:', {id, season, story})
         const {isOpen} = this.state
         // if is not open stock the value of grid, target and data
         // the value is delete and replace each time of card is open
@@ -491,6 +492,12 @@ class History extends Component {
     block =(map,id,season,story,lang)=> {
         const {data} = this.state
 
+        // Check if quest data exists
+        if (!map[season]['story'][story]['quests'][id]) {
+            console.log('Quest data missing for:', {season, story, id})
+            return null
+        }
+
         return (
             <div className={'card_tree'} key={id}>
                 <p className={'info'}>
@@ -511,7 +518,7 @@ class History extends Component {
                 </p>
                 <h5 className={'title'}>{map[season]['story'][story]['quests'][id]['Qname']}</h5>
                 <div className={'card_persona'}>
-                    {Object.keys(map[season]['story'][story]['quests'][id]['status']).map((character) => {
+                    {map[season]['story'][story]['quests'][id]['status'] && Object.keys(map[season]['story'][story]['quests'][id]['status']).map((character) => {
                         // Skip if character data is not loaded yet
                         if (!data['characterId'][character]) {
                             return null
@@ -616,6 +623,15 @@ class History extends Component {
         const season = elemShow['season']
         const story = elemShow['story']
         const id = elemShow['id']
+
+        console.log('showCard called with:', {season, story, id, map: !!map})
+        
+        // Debug: check if map has the required data
+        if (map && map[season] && map[season]['story'] && map[season]['story'][story]) {
+            console.log('Map data found:', map[season]['story'][story])
+        } else {
+            console.log('Map data missing:', {season, story, mapKeys: map ? Object.keys(map) : 'no map'})
+        }
 
         // return card with good data
         return (
@@ -901,9 +917,7 @@ class History extends Component {
                     </div>
                 }
 
-                {this.state.isOpen &&
-                    this.showCard()
-                }
+                {this.state.isOpen && this.showCard()}
             </div>
         )
     }

@@ -106,8 +106,8 @@ class Account extends Component {
                                 </div>
                             </div>
                             <div className="card-action">
-                                <button data-target="modal1" className="btn modal-trigger">{lang === 'en' ? 'Legend' : 'Légende' }</button>
-                                <button data-target="modal2" className="btn modal-trigger">{lang === 'en' ? 'Warning' : 'Important' }</button>
+                                <button data-target="modal1" className="btn modal-trigger yellow-btn">{lang === 'en' ? 'Legend' : 'Légende' }</button>
+                                <button data-target="modal2" className="btn modal-trigger yellow-btn">{lang === 'en' ? 'Warning' : 'Important' }</button>
                             </div>
 
                         </div>

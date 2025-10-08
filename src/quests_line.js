@@ -853,70 +853,124 @@ const psl = {
     ],
 
     /////////// Janthir Wilds ///////////
-    // 145. Envoys of the Titans (Story)
-    '145' : [
+    // 1. Territoire inconnu (Story) - Pas de quête spécifique
+    '155' : [
         [
-            [726]
+            []
         ]
     ],
-    // 146. The Search for Lyhr (Story)
-    '146' : [
-        [
-            [714]
-        ]
-    ],
-    // 147. A Mysterious Figure (Story)
+    // 2. Diplomatie et découverte (Story)
     '147' : [
         [
             [713]
         ]
     ],
-    // 148. Beastly Matters (Story)
-    '148' : [
-        [
-            [725]
-        ]
-    ],
-    // 149. Introductions (Story)
-    '149' : [
-        [
-            [711]
-        ]
-    ],
-    // 150. Into the Janthir Wilds (Story)
-    '150' : [
-        [
-            [727]
-        ]
-    ],
-    // 151. A City of Swords (Story)
-    '151' : [
-        [
-            [710,712,716,717,719,720,722,723]
-        ]
-    ],
-    // 152. Potera's Banished (Story)
+    // 3. Un foyer accueillant (Story)
     '152' : [
         [
             [721]
         ]
     ],
-    // 153. Poking the Bear (Story)
-    '153' : [
+    // 4. Porté disparu (Story)
+    '146' : [
         [
-            [724]
+            [714]
         ]
     ],
-    // 154. Renown of the Kodan (Story)
+    // 5. Des étrangers dans ces terres (Story) - Pas de quête spécifique
     '154' : [
         [
             [715]
         ]
     ],
-    // 155. For Every Titan Ally (Story)
-    '155' : [
+    // 6. Orage sur Janthir (Story)
+    '149' : [
         [
-            [718]
+            [711]
+        ]
+    ],
+    // 7. Par deux fois frappé (Story)
+    '150' : [
+        [
+            [727]
+        ]
+    ],
+    // 8. En quête d'équilibre (Story)
+    '148' : [
+        [
+            [725]
+        ]
+    ],
+    // 9. Dos au mur (Story)
+    '145' : [
+        [
+            [726]
+        ]
+    ],
+    // 10. Couloirs embrumés (Story)
+    '153' : [
+        [
+            [724]
+        ]
+    ],
+    // 11. Tâtonnements (Story) - Pas de quête spécifique
+    '156' : [
+        [
+            []
+        ]
+    ],
+    // 12. La veille de la bataille (Story) - Pas de quête spécifique
+    '158' : [
+        [
+            []
+        ]
+    ],
+    // 13. Le pic du Balrior (Story) - Pas de quête spécifique
+    '157' : [
+        [
+            []
+        ]
+    ],
+    // 14. Dans la vallée des ombres (Story) - Pas de quête spécifique
+    '160' : [
+        [
+            []
+        ]
+    ],
+    // 15. Un héritage maudit (Story) - Pas de quête spécifique
+    '159' : [
+        [
+            []
+        ]
+    ],
+    // 16. Pénitence pour le passé (Story) - Pas de quête spécifique
+    '161' : [
+        [
+            []
+        ]
+    ],
+    // 17. Entrée en force (Story) - Pas de quête spécifique
+    '163' : [
+        [
+            []
+        ]
+    ],
+    // 18. Une entreprise titanesque (Story) - Pas de quête spécifique
+    '164' : [
+        [
+            []
+        ]
+    ],
+    // 19. Prix de la rédemption (Story) - Pas de quête spécifique
+    '162' : [
+        [
+            []
+        ]
+    ],
+    // Prologue: The Tyrian Alliance (Story)
+    '151' : [
+        [
+            [710,712,716,717,719,720,722,723]
         ]
     ],
 };
