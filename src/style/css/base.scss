@@ -112,6 +112,19 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   background-color: var(--primary-yellow) !important;
   color: var(--primary-background) !important; }
 
+.yellow-btn {
+  background-color: var(--primary-yellow) !important;
+  color: var(--primary-background) !important;
+  border: none !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important; }
+  .yellow-btn:hover {
+    background-color: #e6c042 !important;
+    color: var(--primary-background) !important; }
+
+.card.id .card-action .yellow-btn {
+  background-color: var(--primary-yellow) !important;
+  color: var(--primary-background) !important; }
+
 /*
 * HEADER
 */
